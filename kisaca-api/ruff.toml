@@ -1,0 +1,117 @@
+target-version = "py312"
+line-length = 121
+indent-width = 4
+
+exclude = [
+    "migrations",
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".ipynb_checkpoints",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".vscode",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "site-packages",
+    ".venv",
+    "venv",
+    "_deploymanifests",
+    "Dockerfile-preprod",
+    "buildspec-preprod.yml",
+    "Dockerfile",
+    "buildspec.yml",
+]
+
+[lint]
+select = [
+    "F", # pyflakes
+#    "E", # pycodestyle errors
+    "W", # pycodestyle warnings
+#    "C", # McCabe complexity
+    "N", # pep8-naming
+    "B", # flake8-bugbear
+    "I", # isort
+    "S", # flake8-bandit
+    "D", # pydocstyle
+    "COM", # flake8-commas
+    "DJ", # flake8-django
+    "T20", # flake8-print
+]
+ignore = [
+    "S105", # TEMP-CODE -> Remove later after PYTHON_APP_ACCESS_KEY change
+    "DJ001", # django-nullable-model-string-field
+    "C417", # unnecessary-list-comp
+    "D100", # missing-docstring
+    "D101", # missing-class-docstring
+    "D102", # missing-function-docstring
+    "D103", # missing-method-docstring
+    "D104", # missing-package-docstring
+    "D105", # missing-magic-method-docstring
+    "D106", # missing-docstring-in-init
+    "D107", # missing-docstring-in-nested-function
+    "D200", # one-liner-needed
+    "D205", # blank-line-after-summary
+    "D212", # multi-line-docstring-first-line
+    "D415", # capitalized-ends-in-period
+    "E203", # whitespace-before-colon
+    "E231", # missing-whitespace-after-comma
+    "E501", # line-too-long
+    "E731", # do-not-assign-lambda
+    "F403", # from-import-star
+    "F405", # import-star-usage
+    "Q000", # quotes
+    "COM819", # prohibited-trailing-comma
+]
+task-tags = [
+    "TODO",
+    "FIXME",
+    "OPTIMIZE",
+    "NOTE",
+    "TECH-DEBT",
+    "REPO-OPS",
+    "HARD-CODED",
+    "LEGACY-CODE",
+    "TEMP-CODE"
+]
+
+
+[format]
+docstring-code-format = true
+quote-style = "preserve"
+
+[lint.pydocstyle]
+convention = "google"
+
+[lint.isort]
+lines-after-imports = 2
+
+[lint.isort.sections]
+"fastapi" = ["fastapi"]
+
+section-order = [
+    "future",
+    "standard-library",
+    "third-party",
+    "fastapi",
+    "first-party",
+    "local-folder",
+]
+
+[lint.per-file-ignores]
+"__init__.py" = ["F401"]
+"src/controllers/*.py"=["W291"]
