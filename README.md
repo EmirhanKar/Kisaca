@@ -38,7 +38,7 @@ Shortlink Clicks: Kısaltılmış linklerin ne zaman tıklandığını takip ede
 🚀 Kurulum ve Çalıştırma
 
 1. Gereksinimler
-2. 
+   
 Python 3.12+
 
 PostgreSQL
@@ -82,20 +82,9 @@ Swagger UI: http://localhost:8000/docs
 
 Redoc: http://localhost:8000/redoc
 
-👥 Katkıda Bulunanlar
-Bu proje ekip çalışması ile geliştirilmektedir. Katkı sağlamak için:
-
-Projeyi fork'layın.
-
-Yeni bir feature branch açın (git checkout -b feature/yeniOzellik).
-
-Değişikliklerinizi commit edin (git commit -m 'Yeni özellik eklendi').
-
-Branch'inizi push'layın (git push origin feature/yeniOzellik).
-
-Bir Pull Request başlatın.
 
 📝 Notlar
+
 JWT Güvenliği: Üretim (production) ortamına geçerken JWT_SECRET_KEY değerini mutlaka daha karmaşık ve güvenli bir anahtarla değiştirin.
 
 Asenkron Yapı: Proje asyncpg sürücüsü ile tamamen asenkron çalışacak şekilde tasarlanmıştır.
