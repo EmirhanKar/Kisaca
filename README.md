@@ -4,39 +4,101 @@
   </a>
 </p>
 
-<p align="center">
-  <b>FastAPI'yi sıfırdan öğrenmek isteyenler için tasarlanmış,</b>  
-  gerçek bir proje üzerinden <b>uygulamalı web geliştirme eğitimi.</b>
-</p>
-
-
 ## Genel Bakış
 
-Bu repository, **FastAPI ile Gerçek Bir Uygulama Geliştirme”** eğitimine ait kaynak kodları içerir.  
-Eğitimde sıfırdan bir **Link Kısaltma Servisi** geliştirerek FastAPI’nin temel yapı taşlarını, mantığını ve proje mimarisini adım adım öğreneceksin.  
 
-Kısa, yüzeysel konular yerine; gerçek senaryolara dayalı, neden-sonuç ilişkisini anlatan,  
-**detaylı ve öğretici derslerden** oluşur. 
 
-## Eğitim Hedefleri
+🚀 Kısaca - Backend API
 
-Bu projeyi tamamladığında:
+Kısaca, kullanıcıların uzun URL'lerini kısaltmalarına, 
+yönetmelerine ve tıklama istatistiklerini takip etmelerine olanak tanıyan, 
+yüksek performanslı bir URL kısaltma servisidir. 
+Bu depo, projenin tüm backend iş mantığını ve veritabanı yönetimini barındırır.
 
-- FastAPI’nin çekirdek yapı taşlarını (router, Depends, request/response modelleri) profesyonel seviyede kullanabileceksin.
-- Clean Architecture prensiplerine uygun katmanlı bir proje yapısı kurabilecek, business logic’i framework’ten bağımsız hale getirebileceksin.
-- SQLModel ile tip güvenli, Pydantic uyumlu veritabanı modelleri oluşturabileceksin.
-- Alembic kullanarak migration süreçlerini yönetebilecek, veritabanı şemasını güvenle güncelleyebileceksin.
-- JWT tabanlı kimlik doğrulama sistemiyle login, register ve erişim kontrolü mekanizmalarını kurabileceksin.
-- Global Exception Handling ile tutarlı hata yanıtları dönen, üretim ortamına hazır bir API geliştirebileceksin.
-- Repository pattern sayesinde veritabanı işlemlerini soyutlayarak test edilebilir hale getirebileceksin.
-- Environment tabanlı yapılandırma ile development ve production ortamlarını güvenli şekilde ayırabileceksin.
-- Asenkron SQL sorguları (asyncpg) ile yüksek performanslı veritabanı etkileşimleri kurabileceksin.
-- Gerçek dünyada kullanılabilir bir Shortlink (URL kısaltma) servisini baştan sona kendi mimarinle inşa edebileceksin.
+🛠 Kullanılan Teknolojiler
 
-## Klasörler
-- <strong>kisaca:</strong> Next.js ile geliştirilmiş frontend modülüdür.
+Framework: FastAPI (Asenkron ve hızlı Python web framework'ü)
 
-- <strong>project:</strong> FastAPI ile geliştirilmiş backend modülüdür.
+Veritabanı & ORM: PostgreSQL + SQLModel (Pydantic ve SQLAlchemy'nin en iyi yanlarını birleştirir)
+
+Migration: Alembic (Veritabanı şeması yönetimi için)
+
+Güvenlik: JWT (JSON Web Token) tabanlı asenkron kimlik doğrulama.
+
+🏗 Proje Yapısı ve Veritabanı Şeması
+
+Proje, ilişkisel bir veritabanı yapısı üzerine kurulmuştur. Temel tablolar şunlardır:
+
+User: Kullanıcı bilgilerini ve kimlik doğrulama verilerini saklar.
+
+Shortlinks: Orijinal URL'leri, kısaltılmış hallerini ve sahiplik (user_id) ilişkisini yönetir.
+
+Shortlink Clicks: Kısaltılmış linklerin ne zaman tıklandığını takip eder.
+
+🚀 Kurulum ve Çalıştırma
+
+1. Gereksinimler
+2. 
+Python 3.12+
+
+PostgreSQL
+
+2. Ortam Değişkenlerini Ayarla
+   
+Proje kök dizininde bir .env dosyası oluşturun ve aşağıdaki değerleri kendi yerel ayarlarınıza göre güncelleyin:
+
+Kod snippet'i
+
+DB_URL="postgresql+asyncpg://postgres:1234@localhost:5432/kisaca"
+APP_NAME="Kısaca"
+JWT_SECRET_KEY="G44GO... (Kendi gizli anahtarınız)"
+JWT_ALGORITHM="HS256"
+JWT_ACCESS_TOKEN_EXPIRE_MINUTES=30
+
+3. Veritabanı Migration İşlemleri
+   
+Veritabanı tablolarını oluşturmak veya güncellemek için Alembic kullanıyoruz:
+
+Bash
+# En son migration sürümüne yükselt
+alembic upgrade head
+📜 Temel Alembic Komutları
+Veritabanı şemasında bir değişiklik yaptığınızda şu adımları izleyin:
+
+Modeli Güncelle: src/models.py dosyasında gerekli değişiklikleri yapın.
+
+Migration Oluştur:
+
+Bash
+alembic revision --autogenerate -m "değişiklik açıklaması"
+Uygula:
+
+Bash
+alembic upgrade head
+🛣 API Uç Noktaları (Endpoints)
+Proje ayağa kalktığında, interaktif API dokümantasyonuna şu adresten ulaşabilirsiniz:
+
+Swagger UI: http://localhost:8000/docs
+
+Redoc: http://localhost:8000/redoc
+
+👥 Katkıda Bulunanlar
+Bu proje ekip çalışması ile geliştirilmektedir. Katkı sağlamak için:
+
+Projeyi fork'layın.
+
+Yeni bir feature branch açın (git checkout -b feature/yeniOzellik).
+
+Değişikliklerinizi commit edin (git commit -m 'Yeni özellik eklendi').
+
+Branch'inizi push'layın (git push origin feature/yeniOzellik).
+
+Bir Pull Request başlatın.
+
+📝 Notlar
+JWT Güvenliği: Üretim (production) ortamına geçerken JWT_SECRET_KEY değerini mutlaka daha karmaşık ve güvenli bir anahtarla değiştirin.
+
+Asenkron Yapı: Proje asyncpg sürücüsü ile tamamen asenkron çalışacak şekilde tasarlanmıştır.
 
 
 ## Kurulum Adımları
