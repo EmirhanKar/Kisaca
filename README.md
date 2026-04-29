@@ -15,6 +15,7 @@ yönetmelerine ve tıklama istatistiklerini takip etmelerine olanak tanıyan,
 yüksek performanslı bir URL kısaltma servisidir. 
 Bu depo, projenin tüm backend iş mantığını ve veritabanı yönetimini barındırır.
 
+
 🛠 Kullanılan Teknolojiler
 
 Framework: FastAPI (Asenkron ve hızlı Python web framework'ü)
@@ -24,6 +25,8 @@ Veritabanı & ORM: PostgreSQL + SQLModel (Pydantic ve SQLAlchemy'nin en iyi yanl
 Migration: Alembic (Veritabanı şeması yönetimi için)
 
 Güvenlik: JWT (JSON Web Token) tabanlı asenkron kimlik doğrulama.
+
+
 
 🏗 Proje Yapısı ve Veritabanı Şeması
 
@@ -35,6 +38,8 @@ Shortlinks: Orijinal URL'leri, kısaltılmış hallerini ve sahiplik (user_id) i
 
 Shortlink Clicks: Kısaltılmış linklerin ne zaman tıklandığını takip eder.
 
+
+
 🚀 Kurulum ve Çalıştırma
 
 1. Gereksinimler
@@ -42,6 +47,7 @@ Shortlink Clicks: Kısaltılmış linklerin ne zaman tıklandığını takip ede
 Python 3.12+
 
 PostgreSQL
+
 
 2. Ortam Değişkenlerini Ayarla
    
@@ -58,6 +64,7 @@ JWT_SECRET_KEY="G44GO... (Kendi gizli anahtarınız)"
 JWT_ALGORITHM="HS256"
 
 JWT_ACCESS_TOKEN_EXPIRE_MINUTES=30
+
 
 
 3. Veritabanı Migration İşlemleri
@@ -116,9 +123,6 @@ source .venv/bin/activate  # Windows: .venv\Scripts\activate
 # 2️⃣ Kütüphaneleri yükle
 pip install -r requirements.txt
 
-# 3️⃣ Veritabanı migrasyonlarını uygula
-alembic upgrade head
-
-# 4️⃣ Geliştirme sunucusunu çalıştır
+# 3️⃣ Geliştirme sunucusunu çalıştır
 fastapi dev
 ```
