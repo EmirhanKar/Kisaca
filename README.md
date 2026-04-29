@@ -50,16 +50,20 @@ Proje kök dizininde bir .env dosyası oluşturun ve aşağıdaki değerleri ken
 Kod snippet'i
 
 DB_URL="postgresql+asyncpg://postgres:1234@localhost:5432/kisaca"
+
 APP_NAME="Kısaca"
+
 JWT_SECRET_KEY="G44GO... (Kendi gizli anahtarınız)"
+
 JWT_ALGORITHM="HS256"
+
 JWT_ACCESS_TOKEN_EXPIRE_MINUTES=30
+
 
 3. Veritabanı Migration İşlemleri
    
 Veritabanı tablolarını oluşturmak veya güncellemek için Alembic kullanıyoruz:
 
-Bash
 # En son migration sürümüne yükselt
 alembic upgrade head
 📜 Temel Alembic Komutları
@@ -69,13 +73,14 @@ Modeli Güncelle: src/models.py dosyasında gerekli değişiklikleri yapın.
 
 Migration Oluştur:
 
-Bash
 alembic revision --autogenerate -m "değişiklik açıklaması"
-Uygula:
 
-Bash
+uygula:
+
 alembic upgrade head
+
 🛣 API Uç Noktaları (Endpoints)
+
 Proje ayağa kalktığında, interaktif API dokümantasyonuna şu adresten ulaşabilirsiniz:
 
 Swagger UI: http://localhost:8000/docs
