@@ -1,0 +1,4 @@
+# Frontend veya diğer dosyaları istatistiklerden gizle
+path/to/your/frontend/** linguist-vendored
+*.ts linguist-vendored
+*.js linguist-vendored
